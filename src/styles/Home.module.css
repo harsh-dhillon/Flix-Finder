@@ -276,3 +276,27 @@
     transform: rotate(0deg);
   }
 }
+
+.rainbow-progress {
+  background: repeating-linear-gradient(0deg, #f09433 100%, #e6683c 50%, #dc2743 100%);
+  background-size: 200% 100%;
+  animation: rainbow 0.1s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+}
+
+@keyframes rainbow {
+  0% {
+    background-position: 100% 0;
+  }
+  25% {
+    background-position: 75% 0;
+  }
+  50% {
+    background-position: 50% 0;
+  }
+  75% {
+    background-position: 25% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
