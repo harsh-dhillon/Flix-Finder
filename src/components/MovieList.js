@@ -20,7 +20,7 @@ function getMovieDetails(movie) {
   return null;
 }
 
-function MovieList({ movieRecommendations }) {
+function MovieList({ movieRecommendations, hasLoaded }) {
   const movieTitles = movieRecommendations
       .flatMap((recommendation) =>
           recommendation
@@ -31,13 +31,13 @@ function MovieList({ movieRecommendations }) {
       )
       .filter((movie) => movie !== null && movie.title && movie.year);
 
-  if (movieTitles.length === 0) {
-    return (
-        <p className="text-gray-500 font-semibold">
-          No movie recommendations found.
-        </p>
-    );
-  }
+    if (movieTitles.length === 0 && hasLoaded) {
+        return (
+            <p className="text-gray-500 font-semibold">
+                No movie recommendations found.
+            </p>
+        );
+    }
 
   return (
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 justify-items-center">
@@ -53,7 +53,8 @@ function MovieList({ movieRecommendations }) {
 
 
 MovieList.propTypes = {
-  movieRecommendations: PropTypes.arrayOf(PropTypes.string).isRequired,
+    movieRecommendations: PropTypes.arrayOf(PropTypes.string).isRequired,
+    hasLoaded: PropTypes.bool.isRequired,
 };
 
 export default MovieList;

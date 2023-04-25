@@ -8,12 +8,15 @@ export default function App() {
     const [movieRecommendations, setMovieRecommendations] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const [progress, setProgress] = useState(0);
+    const [hasLoaded, setHasLoaded] = useState(false);
+
 
     useEffect(() => {
         const storedRecommendations = localStorage.getItem("movieRecommendations");
         if (storedRecommendations) {
             setMovieRecommendations(JSON.parse(storedRecommendations));
         }
+        setHasLoaded(true);
     }, []);
 
     useEffect(() => {
@@ -58,7 +61,7 @@ export default function App() {
 
                 <MovieForm onSubmit={handleSubmit} />
                 <div className="container lg:max-w-7xl" style={{ minHeight: "330px" }}>
-                    <MovieList movieRecommendations={movieRecommendations} />
+                    <MovieList movieRecommendations={movieRecommendations} hasLoaded={hasLoaded} />
                 </div>
             </main>
         </div>
