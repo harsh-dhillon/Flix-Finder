@@ -300,3 +300,14 @@
     background-position: 0 0;
   }
 }
+
+.custom-select-container .react-select__menu {
+  max-height: 300px;
+  overflow-x: scroll;
+}
+
+@media (max-width: 767px) {
+  .custom-select-container .react-select__menu {
+    max-height: 200px;
+  }
+}

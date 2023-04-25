@@ -1,6 +1,8 @@
 import React from "react";
 import AsyncSelect from "react-select/async";
 import fetchMovies from "./fetchMovies";
+import { useMediaQuery } from "react-responsive";
+
 
 const customSelectStyles = {
   control: (provided) => ({
@@ -16,19 +18,26 @@ const customSelectStyles = {
     display: "flex",
     alignItems: "flex-start",
   }),
-  menu: (provided) => ({
+  menu: (provided, state) => ({
     ...provided,
-    maxHeight: "300px", // Increase the dropdown height
+    maxHeight: "300px",
+    overflowX: state.isMobile ? "auto" : "scroll",
+    [`@media (max-width: 767px)`]: {
+      maxHeight: "200px",
+    },
   }),
   multiValue: (provided) => ({
     ...provided,
     backgroundColor: "#f3f4f6",
+    maxWidth: "215px",
   }),
   multiValueLabel: (provided) => ({
     ...provided,
     fontSize: "14px",
     color: "#4b5563",
+
   }),
+
   multiValueRemove: (provided) => ({
     ...provided,
     color: "#9ca3af",
@@ -40,12 +49,16 @@ const customSelectStyles = {
   valueContainer: (provided) => ({
     ...provided,
     maxHeight: "68px",
-    overflowY: "auto",
+    minWidth: "30px"
   }),
 
   singleValue: (provided) => ({
     ...provided,
-    paddingTop: "8px",
+    minWidth: "0",
+    maxWidth: "50px",
+    overflow: "hidden",
+    textOverflow: "ellipsis",
+    whiteSpace: "nowrap",
   }),
   placeholder: (provided) => ({
     ...provided,
@@ -54,17 +67,18 @@ const customSelectStyles = {
   }),
 };
 
-
 const MoviePreferencesInput = ({
+
   moviePreferences,
   setMoviePreferences,
   style,
+
 }) => {
   return (
     <AsyncSelect
       isMulti
       loadOptions={fetchMovies}
-      className="react-select-container"
+      className="custom-select-container"
       classNamePrefix="react-select"
       placeholder="Movies you like"
       value={moviePreferences.map((movie) => ({ label: movie, value: movie }))}
