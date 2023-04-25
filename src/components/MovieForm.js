@@ -48,8 +48,8 @@ function MovieForm({ onSubmit }) {
           </div>
 
           <div className="w-full md:w-1/2 md:px-4 mb-6 md:mb-0">
-            <fieldset className="border border-gray-300 p-4 mb-4 rounded-md">
-              <legend className="text-lg font-semibold mb-2">
+            <fieldset className="border border-gray-300 p-4 mb-2 rounded-md">
+              <legend className="text-lg font-semibold">
                 Select your favorite movies
               </legend>
               <MoviePreferencesInput

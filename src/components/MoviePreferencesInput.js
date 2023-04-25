@@ -5,8 +5,8 @@ import fetchMovies from "./fetchMovies";
 const customSelectStyles = {
   control: (provided) => ({
     ...provided,
-    minHeight: "55px",
-    height: "55px",
+    minHeight: "70px",
+    height: "70px",
     borderRadius: "0.375rem",
     borderColor: "#d1d5db",
     boxShadow: "none",
@@ -18,8 +18,7 @@ const customSelectStyles = {
   }),
   menu: (provided) => ({
     ...provided,
-    maxHeight: "55px",
-    overflowY: "auto",
+    maxHeight: "300px", // Increase the dropdown height
   }),
   multiValue: (provided) => ({
     ...provided,
@@ -40,7 +39,7 @@ const customSelectStyles = {
   }),
   valueContainer: (provided) => ({
     ...provided,
-    maxHeight: "55px",
+    maxHeight: "68px",
     overflowY: "auto",
   }),
 
@@ -51,9 +50,10 @@ const customSelectStyles = {
   placeholder: (provided) => ({
     ...provided,
     textAlign: "center",
-    paddingTop: "13px",
+    paddingTop: "20px",
   }),
 };
+
 
 const MoviePreferencesInput = ({
   moviePreferences,
