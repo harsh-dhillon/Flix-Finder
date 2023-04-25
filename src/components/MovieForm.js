@@ -17,7 +17,7 @@ function MovieForm({ onSubmit }) {
     <>
       <form onSubmit={handleSubmit} className="container mx-auto lg:max-w-7xl">
         <div className="flex flex-wrap justify-center items-start my-2">
-          <div className="w-full md:w-1/2 md:px-3 mb-6 md:mb-0">
+          <div className="w-full md:w-1/2 md:px-3 mb-4 md:mb-0">
             <fieldset className="border border-gray-300 p-4 mb-4 rounded-md">
               <legend className="text-lg font-semibold mb-2">
                 Select your favorite genres
