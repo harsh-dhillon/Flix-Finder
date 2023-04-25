@@ -41,7 +41,7 @@ function MovieList({ movieRecommendations, hasLoaded }) {
     if (movieTitles.length === 0 && hasLoaded) {
         return (
             <p className="text-gray-500 font-semibold">
-                No movie recommendations found.
+                Search for some movie recommendations.
             </p>
         );
     }
