@@ -1,8 +1,6 @@
 import React from "react";
 import AsyncSelect from "react-select/async";
 import fetchMovies from "./fetchMovies";
-import { useMediaQuery } from "react-responsive";
-
 
 const customSelectStyles = {
   control: (provided) => ({
@@ -20,11 +18,7 @@ const customSelectStyles = {
   }),
   menu: (provided, state) => ({
     ...provided,
-    maxHeight: "300px",
-    overflowX: state.isMobile ? "auto" : "scroll",
-    [`@media (max-width: 767px)`]: {
-      maxHeight: "200px",
-    },
+    maxHeight: "300px"
   }),
   multiValue: (provided) => ({
     ...provided,
@@ -70,8 +64,7 @@ const customSelectStyles = {
 const MoviePreferencesInput = ({
 
   moviePreferences,
-  setMoviePreferences,
-  style,
+  setMoviePreferences
 
 }) => {
   return (

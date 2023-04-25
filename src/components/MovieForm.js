@@ -22,26 +22,26 @@ function MovieForm({ onSubmit }) {
               <legend className="text-lg font-semibold mb-2">
                 Select your favorite genres
               </legend>
-              <div className="flex flex-wrap items-center justify-between md:justify-start">
+              <div className="flex flex-wrap items-center justify-center">
                 {genres.map((genre, index) => (
-                  <div
-                    key={index}
-                    className="flex items-center mb-2 w-1/2 md:w-1/4"
-                  >
-                    <input
-                      type="checkbox"
-                      id={`genre-${index}`}
-                      className="mr-1 text-blue-500"
-                      checked={genreCheckboxes[index]}
-                      onChange={(event) => handleCheckboxChange(event, index)}
-                    />
-                    <label
-                      className="text-sm text-gray-700 cursor-pointer"
-                      htmlFor={`genre-${index}`}
+                    <div
+                        key={index}
+                        className="flex items-center mb-2 w-1/2 md:w-1/4"
                     >
-                      {genre}
-                    </label>
-                  </div>
+                      <input
+                          type="checkbox"
+                          id={`genre-${index}`}
+                          className="mr-1 text-blue-500"
+                          checked={genreCheckboxes[index]}
+                          onChange={(event) => handleCheckboxChange(event, index)}
+                      />
+                      <label
+                          className="text-sm text-gray-700 cursor-pointer"
+                          htmlFor={`genre-${index}`}
+                      >
+                        {genre}
+                      </label>
+                    </div>
                 ))}
               </div>
             </fieldset>
