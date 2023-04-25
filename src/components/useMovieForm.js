@@ -42,7 +42,6 @@ export default function useMovieForm(onSubmit) {
     }
 
     promptText += "\n";
-    console.log(promptText);
 
     const recommendations = await fetchMovieRecommendations(promptText);
     onSubmit(recommendations);

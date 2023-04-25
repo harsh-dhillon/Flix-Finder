@@ -5,7 +5,14 @@ import React from "react";
 const movieRegex = /^(?:\d+\.\s*)?(.+?)(?:\s*\((\d{4})\))?$/i;
 
 function normalizeTitle(title) {
-  return title.toLowerCase().replace(/[^\w\s]/gi, ""); // Remove special characters
+    const titleWithoutSpecialChars = title.toLowerCase().replace(/[^\w\s]/gi, ""); // Remove special characters
+
+    // Special case for Wall-E
+    if (/^wall[-_]?e$/.test(titleWithoutSpecialChars)) {
+        return "wall·e";
+    }
+
+    return titleWithoutSpecialChars;
 }
 
 function getMovieDetails(movie) {
