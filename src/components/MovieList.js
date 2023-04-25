@@ -23,43 +23,43 @@ function getMovieDetails(movie) {
 function MovieList({ movieRecommendations }) {
   if (movieRecommendations.length === 0) {
     return (
-      <p className="text-gray-500 font-semibold">
-        No movie recommendations found.
-      </p>
+        <p className="text-gray-500 font-semibold">
+          No movie recommendations found.
+        </p>
     );
   }
 
   return (
-    <>
-      {movieRecommendations.map((recommendation) => {
-        const movieList = recommendation
-          .split("\n")
-          .map((movie) => movie.trim())
-          .filter((movie) => movie !== "");
-        const movieTitles = movieList
-          .map((movie) => getMovieDetails(movie))
-          .filter((movie) => movie !== null && movie.title && movie.year);
+      <>
+        {movieRecommendations.map((recommendation) => {
+          const movieList = recommendation
+              .split("\n")
+              .map((movie) => movie.trim())
+              .filter((movie) => movie !== "");
+          const movieTitles = movieList
+              .map((movie) => getMovieDetails(movie))
+              .filter((movie) => movie !== null && movie.title && movie.year);
 
-        // Check if movieTitles is not empty
-        if (movieTitles.length === 0) {
-          return null;
-        }
+          if (movieTitles.length === 0) {
+            return null;
+          }
 
-        return (
-          <React.Fragment key={movieTitles[0].title}>
-            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 xl:mx-16 justify-items-center">
-              {movieTitles.slice(0).map(({ title, year }, index) => (
-                <div key={index}>
-                  <MovieCard movieTitle={title} releaseYear={year} />
+          return (
+              <React.Fragment key={movieTitles[0].title}>
+                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 justify-items-center">
+                  {movieTitles.slice(0).map(({ title, year }, index) => (
+                      <div key={index}>
+                        <MovieCard movieTitle={title} releaseYear={year} />
+                      </div>
+                  ))}
                 </div>
-              ))}
-            </div>
-          </React.Fragment>
-        );
-      })}
-    </>
+              </React.Fragment>
+          );
+        })}
+      </>
   );
 }
+
 
 MovieList.propTypes = {
   movieRecommendations: PropTypes.arrayOf(PropTypes.string).isRequired,

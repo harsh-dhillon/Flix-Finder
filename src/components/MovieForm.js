@@ -15,7 +15,7 @@ function MovieForm({ onSubmit }) {
 
   return (
     <>
-      <form onSubmit={handleSubmit} className="max-w-6xl mx-auto">
+      <form onSubmit={handleSubmit} className="container mx-auto lg:max-w-7xl">
         <div className="flex flex-wrap justify-center items-start my-2">
           <div className="w-full md:w-1/2 md:px-3 mb-6 md:mb-0">
             <fieldset className="border border-gray-300 p-4 mb-4 rounded-md">
@@ -73,7 +73,7 @@ function MovieForm({ onSubmit }) {
                   }}
                 >
                   {isLoading ? (
-                    <BeatLoader size={10} color={"#fff"} />
+                    <BeatLoader size={10}  color={"#fff"} />
                   ) : (
                     "Search"
                   )}
