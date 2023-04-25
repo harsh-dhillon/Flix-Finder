@@ -2,7 +2,7 @@ export const genres = [
   "Action",
   "Adventure",
   "Animation",
-  "Biography",
+  "Biopic",
   "Comedy",
   "Crime",
   "Drama",
